@@ -1,0 +1,71 @@
+#!/bin/sh 
+#
+#######################################################################
+#
+#        Samuel M. Haugland July 2017. Run Gemini,Dispec,Totido all 
+#        at once. Build an output directory
+#
+#######################################################################
+
+if test "$#" != 1; then                                                          
+echo " Usage: ./do_all RUN_NAME"                                
+echo "RUN_NAME is name of output directory"                                
+exit                                                                            
+fi        
+
+run_name=$1
+Seismo_Length=3200
+#Damping time should be Seismo_Length / 5 
+Damping_Time=640
+Earth_Model=iasp91
+Omega_Ell_Window=lw200mhz
+Source_File=C022980A
+Station_File=gemini_STATIONS
+
+mkdir ${run_name}
+mkdir ${run_name}/green
+cp do_all ${run_name}
+cp ./gemini.sc ${run_name}
+cp ./disp.sc ${run_name}
+cp ./to.sc ${run_name}
+cp stations/${Station_File} ${run_name}
+cp ${Omega_Ell_Window} ${run_name}
+cp sources/${Source_File} ${run_name}
+cp ${Earth_Model} ${run_name}
+
+echo '#-------------------------------------------------------------------'
+echo '#                                                                   '
+echo '#                            Run GEMINI                             '
+echo '#                            ~~~~~~~~~~                             '  
+echo '#                            ~~~~~~~~~~                             '
+echo '#-------------------------------------------------------------------'
+
+(cd ${run_name} && ./gemini.sc ${Earth_Model} ${Omega_Ell_Window} \
+                    ${Seismo_Length} ${Damping_Time})
+
+echo '#-------------------------------------------------------------------'
+echo '#                                                                   '
+echo '#                            Run DISPEC                             '
+echo '#                            ~~~~~~~~~~                             '  
+echo '#                            ~~~~~~~~~~                             '
+echo '#-------------------------------------------------------------------'
+
+(cd ${run_name} && ./disp.sc ${Source_File} ${Station_File})
+
+echo '#-------------------------------------------------------------------'
+echo '#                                                                   '
+echo '#                            Run TOTIDO                             '
+echo '#                            ~~~~~~~~~~                             '  
+echo '#                            ~~~~~~~~~~                             '
+echo '#-------------------------------------------------------------------'
+
+(cd ${run_name} && ./to.sc spec3k ${Seismo_Length})
+
+# Samuel Haugland July 2017
+# Execute this script to neatly pack gemini output into a folder that 
+# gemini_pickle can turn into an obspy pickle file
+# Splits a single Ascii output file into a file for each seismogram
+(cd ${run_name} && csplit --digits=2  --quiet --prefix=outfile seismogr "/REC/-0" "{*}")
+(cd ${run_name} && mv outfile00 meta_param)
+
+

@@ -1,0 +1,118 @@
+
+
+      How to compute synthetic seismograms with the program system
+
+                            G E M I N I
+
+         written by Joerg Dalkolmo and Wolfgang Friederich.
+  (e-mail: kolmo@geophys.uni-stuttgart.de, wolle@geophys.uni-stuttgart.de)
+
+
+**********************************************************************
+
+To compile the programs just type 'make' if you are on a Linux-Pc AND
+you have 'f2c'. If this is not the case, edit the makefiles in the
+directories 'Gemini', 'Dispec' and 'Totido' according to your
+equipment.
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+GEMINI stands for Green's function of the Earth by MInor Integration.
+Actually, GEMINI consists of three separate programs, sharing the work
+for computing seismograms:
+	GEMINI
+	DISPEC
+	TOTIDO
+
+Purpose of the separate programs
+--------------------------------
+GEMINI does the main work. It numerically solves the equation of
+motion (EM), or rather, the systems of ordinary differential equations
+(SODEs), derived from the EM. The results are combined to the Green's
+coefficients (GCs) and stored on disk.
+
+DISPEC computes the spectrum for vertical & horizontal displacement.
+To this purpose, the GCs are read in and multiplicated with the source
+function.  Afterwards, the sum over spherical harmonics is performed
+and the resulting spectrum is stored on disk.
+
+TOTIDO does a back transform to the time domain by a Fast Fourier
+Transformation.  Filters (high/low pass) can be applied, and there is
+a switch to choose between displacement/velocity/acceleration
+seismograms.
+
+Required data files for running the programs
+--------------------------------------------
+GEMINI needs two files supplying data for operation. One of these must
+contain the earth model in a special format. Refer to the example
+files IASP91 and STUTPREM/SPREMANI.  The other file must contain the
+upper and lower limits for the degrees l of the spherical harmonics.
+For some selected frequencies the upper and the lower limits have to
+be given. Usually, the lower limit is zero and we do not recommend to
+change this, because of ugly truncation effects in the resulting
+seismograms.  The frequencies must be listed in increasing order.  The
+limits for other frequencies are found by linear inter-/extrapolation.
+In the first line of the file, the first integer must tell the number
+of the following frequencies. 
+
+DISPEC needs the degree limit file as well, the model parameter,
+needed for moment tensor sources, are handed over in the GC file.  The
+source parameters have to be supplied in an ASCII file with Harvard
+catalog format (CMT). We provide a few example files to enable you to
+check the format and content. Output of DISPEC is the velocity
+spectrum written out in the binary file 'spec3k'.
+
+TOTIDO reads 'spec3k' and allows manipulations of the spectrum, e.g.
+filtering or time shifting. The parameters required for these
+operations are read in interactively. The time series are written to
+the file 'seismogr'.
+
+Running GEMINI 
+****************
+Starting the program GEMINI, it will ask you first to type in its 
+running parameters. We recommend to use the driver file 'gemini.sc' to
+change those parameters, and executing 'gemini.sc' after that.
+Detailed explanations are given there.
+
+
+Format of the GEMINI output file 
+----------------------------------
+GEMINI stores its results in UNFORMATTED binary files.
+The header consists of useful information. See the source code for
+its contents. Further records are stored after the GCs for each
+frequency have been computed.
+In order to save disk space all data are stored in single precision.
+
+Running DISPEC
+***************
+See the driver file disp.sc.
+
+Format of the DISPEC output file 
+----------------------------------
+The spectra  DISPEC generates, are stored as binary files 'spec3k' 
+for all three components of the displacement. 
+
+Running TOTIDO
+****************
+See the driver file 'to.sc'.
+
+Format of TOTIDO output file
+-----------------------------
+The time series, TOTIDO generates, and the filtered spectrum are
+written into an ASCII file named 'seismogr'. The first two lines are
+info lines with source and receiver parameters, followed by the data
+columns: The first column contains the time in seconds, the following
+three columns are the Upward-, North-south- and East-West-components.
+one the amplitude in nm/s^2 (acceleration), nm/s (velocity) or nm
+(displacement).
+
+To calculate seismograms run the programs in the following order:
+
+      1.    'gemini' via driver file 'gemini.sc'
+      2.    'dispec' via driver file 'disp.sc'
+      3.    'totido' via driver file 'to.sc'
+
+
+Joerg Dalkolmo

@@ -1,0 +1,296 @@
+File last updated on 
+Wed May 28 09:06:28 PDT 1997
+      96 s_station s_location s_lat       s_long       s_elev   s_site                                                       
+      96 AAE       IU         +09.029200  +038.765600  +2442.0  Addis Ababa, Ethiopia                                        
+      96 AAK       II          42.639000    74.494000   1645.0  Ala Archa, Kyrgyzstan                                        
+      96 ABKT      II          37.930400    58.118900    678.0  Alibek, Turkmenistan                                         
+      96 ADK       IU         +51.883700  -176.684400  +0116.0  Adak, Aleutian Islands, Alaska                               
+      96 AFI       IU         -13.909300  -171.777300  +0706.0  Afiamalu, Western Samoa                                      
+      96 ALE       II          82.503300   -62.350000     60.0  Alert, N.W.T., Canada                                        
+      96 ALQ       US         +34.946200  -106.456700  +1840.0  Albuquerque, New Mexico, USA                                 
+      96 ANMO      IU         +34.946200  -106.456700  +1840.0  Albuquerque, New Mexico, USA                                 
+      96 ANTO      IU         +39.868900  +032.793599  +0883.0  Ankara, Turkey                                               
+      96 ARU       II          56.430200    58.562500    250.0  Arti, Russia                                                 
+      96 ASCN      II          -7.932700   -14.360100    173.0  Butt Crater, Ascension Island                                
+      96 BAR       TS         +32.680000  -116.672000  +0548.0  Barrett Dam, California, USA                                 
+      96 BDFB      GT         -15.641760  -048.014780  +1195.0  Brasilia, Brazil                                             
+      96 BFO       BF         +48.331940  +008.331110  +0739.0  Black Forest Observatory, Schiltach, Germany                 
+      96 BFO       II          48.331900     8.331100    589.0  Black Forest Observatory, Schiltach, Germany                 
+      96 BGCA      GT         +05.176360  +018.424220  +0676.0  Bogoin, Central African Republic                             
+      96 BILL      IU         +68.065110  +166.452400  +0299.0  Bilibino, Russia                                             
+      96 BJT       IC         +40.018300  +116.167900  +0197.0  Baijiatuan, Beijing, China                                   
+      96 BOCO      IU         +04.616700  -074.116700  +3137.0  Bogota, Colombia                                             
+      96 BORG      II          64.747400   -21.326800    110.0  Borgarfjordur, Asbjarnarstadir, Iceland                      
+      96 BOSA      GT         -28.614100  +025.255530  +1280.0  Boshof, South Africa                                         
+      96 BRVK      II          53.058100    70.282800    330.0  Borovoye, Kazakhstan                                         
+      96 CALB      TS         +34.143000  -118.627000  +0000.0  Calabasas, California, USA                                   
+      96 CASY      IU         -66.279200  +110.536400  +0159.0  Casey, Antarctica                                            
+      96 CCM       IU         +38.055700  -091.244600  +0222.0  Cathedral Cave, Missouri, USA                                
+      96 CHTO      IU         +18.790000  +098.976900  +0316.0  Chiang Mai, Thailand                                         
+      96 CMB       BK         +38.035000  -120.385000  +0719.0  Columbia College, California, USA                            
+      96 CMLA      II          37.763700   -25.524300    429.0  Cha de Macela, Sao Miguel Island, Azores                     
+      96 COCO      II         -12.190100    96.834900      0.0  West Island, Cocos (Keeling) Islands                         
+      96 COL       IU         +64.900000  -147.793300  +0320.0  College Outpost, Alaska, USA                                 
+      96 COLA      IU         +64.873800  -147.851100  +0194.0  College Outpost, Alaska, USA                                 
+      96 COR       IU         +44.585700  -123.303200  +0121.0  Corvallis, Oregon, USA                                       
+      96 CPUP      GT         -26.330640  -057.330870  +0105.0  Villa Florida, Paraguay                                      
+      96 CTAO      IU         -20.088200  +146.254500  +0357.0  Charters Towers, Australia                                   
+      96 CWC       TS         +36.439880  -118.080160  +1553.0  Cottonwood Creek Canyon, California, USA                     
+      96 DAV       IU         +07.087800  +125.574700  +0085.0  Davao, Philippines                                           
+      96 DBIC      GT         +06.670160  -004.856560  +0125.0  Dimbroko, Cote d'Ivoire                                      
+      96 DGR       TS         +33.650000  -117.009000  +0700.0  Domenigoni Valley Reservior, California, USA                 
+      96 DPC       CZ         +50.358300  +016.411100  +0760.0  Dobruska, Czech Republic                                     
+      96 EFI       II         -51.675300   -58.063700    110.0  Mount Kent, East Falkland Island                             
+      96 ENH       CD         +30.271800  +109.486800  +0487.0  Enshi, Hubei Province, China                                 
+      96 ERM       II          42.015000   143.157200     40.0  Erimo, Hokkaido Island, Japan                                
+      96 ESK       II          55.316700    -3.205000    242.0  Eskdalemuir, Scotland, UK                                    
+      96 FFC       II          54.725000  -101.978300    338.0  Flin Flon, Canada                                            
+      96 GLA       TS         +33.052000  -114.827000  +0627.0  Glamis, California, USA                                      
+      96 GNI       IU         +40.053000  +044.724000  +1460.0  Garni, Armenia                                               
+      96 GPO       TS         +35.649400  -117.661900  +0735.0  China Lake , California, USA                                 
+      96 GRFO      IU         +49.691900  +011.221700  +0425.0  Grafenberg, Germany                                          
+      96 GSC       TS         +35.302800  -116.808300  +0990.0  Goldston, California, USA                                    
+      96 GUMO      IU         +13.587800  +144.866200  +0014.0  Guam, Marianas Islands                                       
+      96 HIA       IC         +49.266700  +119.741700  +0610.0  Hailar, Neimenggu Province, China                            
+      96 HKT       IU         +29.961800  -095.838400  -0415.0  Hockley, Texas                                               
+      96 HNR       IU         -09.432200  +159.947100  +0072.0  Honiara, Solomon Islands                                     
+      96 HOPE      II         -54.283300   -36.483300      0.0  Hope Point, South Georgia Island                             
+      96 HRV       IU         +42.506000  -071.558000  +0180.0  Harvard, Massachusetts, USA                                  
+      96 INCN      IU         +37.483300  +126.633300  +0420.0  Inchon, Republic of Korea                                    
+      96 ISA       TS         +35.663000  -118.473300  +0835.0  Isabella, California, USA                                    
+      96 JTS       II          10.290800   -84.952500    340.0  Las Juntas de Abangares, Costa Rica                          
+      96 KBS       IU         +78.925600  +011.941700  +0077.0  Ny-Alesund, Spitzbergen, Norway                              
+      96 KEV       IU         +69.755300  +027.006700  +0080.0  Kevo, Finland                                                
+      96 KIEV      IU         +50.694400  +029.208300  +0163.0  Kiev, Ukraine                                                
+      96 KIP       IU         +21.423300  -158.015000  +0070.0  Kipapa, Hawaii, USA                                          
+      96 KIV       II          43.955300    42.686300   1054.0  Kislovodsk, Russia                                           
+      96 KMBO      IU         -01.126800  +037.252300  +1960.0  Kilima Mbogo, Kenya                                          
+      96 KMI       CD         +25.123300  +102.740000  +1945.0  Kunming, Yunnan Province, China                              
+      96 KMI       IC         +25.123300  +102.740000  +1945.0  Kunming, Yunnan Province, China                              
+      96 KONO      IU         +59.649100  +009.598200  +0216.0  Kongsberg, Norway                                            
+      96 KURK      II          50.715400    78.620200    184.0  Kurchatov, Kazakhstan                                        
+      96 LBTB      GT         -25.015100  +025.596650  +1128.0  Lobatse, Botswana, Africa                                    
+      96 LPAZ      GT         -16.287900  -068.130690  +4769.0  La Paz , Bolivia                                             
+      96 LSA       IC         +29.700000  +091.150000  +3789.0  Tibet, China                                                 
+      96 LSZ       IU         -15.276600  +028.188200  +1184.0  Lusaka, Zambia                                               
+      96 LVC       IU         -22.367700  -068.546800  +2195.0  Limon Verde, Chile                                           
+      96 LVZ       II          67.897900    34.651400    630.0  Lovozero, Russia                                             
+      96 LZH       CD         +36.086700  +103.844400  +1560.0  Lanzhou, Gansu Province, China                               
+      96 MA2       IU         +59.575600  +150.770000  +0339.0  Magadan, Russia                                              
+      96 MAJO      IU         +36.542500  +138.207300  +0405.0  Matsushiro, Japan                                            
+      96 MAKZ      IU         +46.808000  +081.977000  +0600.0  Makanchi, Kazakhstan                                         
+      96 MDJ       CD         +44.616400  +129.591900  +0250.0  Mudanjiang, Heilongjiang Province, China                     
+      96 MDJ       IC         +44.616400  +129.591900  +0250.0  Mudanjiang, Heilongjiang Province, China                     
+      96 MLAC      TS         +37.631000  -118.834000  +2170.0  Mammoth Lakes, California, USA                               
+      96 MSEY      II          -4.673700    55.479200    475.0  Mahe, Seychelles                                             
+      96 MSVF      II         -17.733300   178.050000    783.0  Monasavu, Fiji                                               
+      96 NEE       TS         +34.823000  -114.596000  +0139.0  Needles, California, USA                                     
+      96 NIL       II          33.650000    73.251200    536.0  Nilore, Pakistan                                             
+      96 NNA       II         -11.987500   -76.842200    575.0  Nana, Peru                                                   
+      96 NRIL      II          69.504900    88.441400     92.0  Norilsk, Russia                                              
+      96 NWAO      IU         -32.926600  +117.233300  +0265.0  Narrogin, Australia                                          
+      96 OBN       II          55.113800    36.568700    160.0  Obninsk, Russia                                              
+      96 OSI       TS         +34.614500  -118.723500  +0706.0  Osito Adit, California, USA                                  
+      96 PAB       IU         +39.545800  -004.348300  +0925.0  San Pablo, Spain                                             
+      96 PAS       TS         +34.148300  -118.171700  +0295.0  Pasadena, California, USA                                    
+      96 PET       IU         +53.023500  +158.649800  +0150.0  Petropavlovsk, Russia                                        
+      96 PFO       II          33.609200  -116.455300   1280.0  Pinon Flat, California, USA                                  
+      96 PFO       TS         +33.609200  -116.455300  +1280.0  Pinon Flat, California, USA                                  
+      96 PLCA      GT         -40.732770  -070.550830  +1050.0  Paso Flores, Argentina                                       
+      96 PMG       IU         -09.409200  +147.153900  +0067.0  Port Moresby, New Guinea                                     
+      96 PMSA      IU         -64.774199  -064.049000  +0010.0  Palmer Station, Antarctica                                   
+      96 PTCN      IU         -25.072830  -130.094670  +0195.0  Pitcarn Island, South Pacific                                
+      96 PTGA      IU         -00.730800  -059.966600  +0237.0  Pitinga, Brazil                                              
+      96 QIZ       CD         +19.029400  +109.843300  +0230.0  Qiongzhong, Guangduong Province, China                       
+      96 RAR       IU         -21.212500  -159.773300  +0028.0  Rarotonga, Cook Islands                                      
+      96 RAYN      II          23.522500    45.503200    631.0  Ar Rayn, Saudi Arabia                                        
+      96 RPN       II         -27.126700  -109.334400    110.0  Rapanui, Easter Island, Chile                                
+      96 RPV       TS         +33.743800  -118.403500  +0115.0  Rancho Palos Verde California, USA                           
+      96 SBA       GT         -77.849120  +166.757290  +0020.0  Scott Base, Antarctica                                       
+      96 SBC       TS         +34.441700  -119.713300  +0090.0  Santa Barbara, California, USA                               
+      96 SDV       IU         +08.879000  -070.633000  +1550.0  Santo Domingo, Venezuela                                     
+      96 SFJ       IU         +66.996700  -050.615200  +0373.0  Sondre Stromfjord, Greenland                                 
+      96 SHEL      II         -15.958800    -5.745700    537.0  Horse Pasture, St. Helena Island                             
+      96 SJG       IU         +18.111700  -066.150000  +0457.0  San Juan, Puerto Rico                                        
+      96 SMTC      TS         +32.948999  -115.720000  -0050.0  Superstition Mountain, California, USA                       
+      96 SNCC      TS         +33.247999  -119.524000  +0227.0  San Nicolas Island, California, USA                          
+      96 SNZO      IU         -41.310300  +174.704600  +0062.0  South Karori, New Zealand                                    
+      96 SPA       IU         -89.995400  +115.000000  +2927.0  South Pole, Antarctica                                       
+      96 SSE       CD         +31.095600  +121.186700  +0010.0  Sheshan, Shanghai, China                                     
+      96 SSE       IC         +31.095100  +121.185900  +0015.0  Shanghai, China                                              
+      96 SSPA      IU         +40.640100  -077.891400  +0352.0  Standing Stone, Pennsylvania                                 
+      96 SUR       II         -32.379700    20.811700   1770.0  Sutherland, South Africa                                     
+      96 SVD       TS         +34.104500  -117.097000  +0600.0  Seven Oaks Dam, California, USA                              
+      96 TATO      IU         +24.975400  +121.488100  +0053.0  Taipei, Taiwan                                               
+      96 TAU       II         -42.909900   147.320400    132.0  Hobart, Tasmania, Australia                                  
+      96 TBT       IU         +28.679400  -017.914500  +0180.0  Taburiente, Canary Islands, Spain                            
+      96 TEIG      IU         +20.226400  -088.276600  +0069.0  Tepich, Yucatan, Mexico                                      
+      96 TIXI      IU         +71.649000  +128.866500  +0050.0  Tiksi, Russia                                                
+      96 TLY       II          51.680700   103.643800    579.0  Talaya, Russia                                               
+      96 TSUM      IU         -19.202200  +017.583800  +1240.0  Tsumeb, Namibia                                              
+      96 TUC       IU         +32.309600  -110.784600  +0874.0  Tucson, Arizona                                              
+      96 ULN       IU         +47.865200  +107.052800  +1615.0  Ulaanbaatar, Mongolia                                        
+      96 USC       TS         +34.021000  -118.287000  +0060.0  USC, Los Angeles, California, USA                            
+      96 VNDA      GT         -77.517240  +161.852820  +0151.0  Wright Valley (Bull Pass) Antarctica                         
+      96 VTV       TS         +34.567000  -117.333000  +0847.0  Victorville, California, USA                                 
+      96 WMQ       IC         +43.821100  +087.695000  +0903.0  Urumqi, Xinjiang Province, China                             
+      96 WRAB      II         -19.933600   134.360000    366.0  Tennant Creek, NT, Australia                                 
+      96 XAN       IC         +34.039400  +108.921400  +0630.0  Xi'an, China                                                 
+      96 YAK       IU         +62.030830  +129.681170  +0105.0  Yakutsk, Russia                                              
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    
+      96 YSS       IU         +46.958300  +142.761000  +0100.0  Yuzhno Sakhalinsk, Russia                                    

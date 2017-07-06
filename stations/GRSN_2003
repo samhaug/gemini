@@ -1,0 +1,18 @@
+File last updated on 
+Tue Sep 2003
+      03 s_station s_location s_lat       s_long       s_elev   s_site
+      03 BFO       GR          48.3301       8.3296      600.0   Black Forest Observatory
+      03 BRG       GR          50.8732      13.9428      340.0   Berggiesshuebel
+      03 BSEG      GR          53.9353      10.3169       40.0   Bad Segeberg
+      03 BUG       GR          51.4406       7.2693      131.0   Bochum University
+      03 CLL       GR          51.3077      13.0026      276.0   Collm
+      03 CLZ       GR          51.8416      10.3724      700.0   Clausthal-Zellerfeld
+      03 FUR       GR          48.1650      11.2770      572.0   Fuerstenfeldbruck
+      03 GRFO      GR          49.6909      11.2203      434.0   Graefenberg
+      03 IBBN      GR          52.3070       7.7570        1.0   Ibbenbueren (elev?)
+      03 MOX       GR          50.6447      11.6156      501.0   Moxa
+      03 RGN       GR          54.5460      13.3640        1.0   Ruegen (elev ?)
+      03 RUE       GR          52.4800      13.7800        1.0   Ruedersdorf (elev?)
+      03 STU       GR          48.7708       9.1933      360.0   Stuttgart
+      03 TNS       GR          50.2225       8.4473      846.0   Taunus Observatory
+      03 WET       GR          49.1440      12.8782      652.0   Wettzell
