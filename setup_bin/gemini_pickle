@@ -1,0 +1,87 @@
+#!/home/samhaug/anaconda2/bin/python
+
+'''
+==============================================================================
+
+File Name : gemini_pickle.py
+Purpose : Pickle the gemini output into obspy streams
+Creation Date : 06-07-2017
+Last Modified : Thu 06 Jul 2017 02:44:05 PM EDT
+Created By : Samuel M. Haugland
+
+==============================================================================
+'''
+
+import numpy as np
+from subprocess import call
+from os import listdir
+import h5py
+import obspy
+import seispy
+import glob
+
+def main():
+    stat_list,out_list = get_lists()
+    ste,stn,stz = make_streams(stat_list,out_list)
+    ste.write('ste.pk',format='PICKLE')
+
+def make_streams(stat_list,out_list):
+    ste = obspy.core.stream.Stream()
+    stn = obspy.core.stream.Stream()
+    stz = obspy.core.stream.Stream()
+
+    with open(glob.glob('C*_cmt')[0]) as cmt:
+        time = next(cmt).split()
+        date = [int(ii) for ii in time[1].split('/')]
+        if date[2] > 70.:
+            date[2] += 1900
+        elif date[2] < 70.:
+            date[2] += 2000
+        hms = time[2]
+        starttime = obspy.core.utcdatetime.UTCDateTime('{},{},{},{}'.
+                    format(date[2],date[0],date[1],hms))
+
+    meta = open('meta_param','r').read().strip().split('\n')
+    npts = meta[1].split()[1]
+    sr = meta[1].split()[3]
+    evla = meta[0].split()[4]
+    evlo = meta[0].split()[5]
+
+    for ii in range(0,len(stat_list)):
+        tre = obspy.core.trace.Trace()
+        trn = obspy.core.trace.Trace()
+        trz = obspy.core.trace.Trace()
+        with open(out_list[ii]) as outfile:
+            head = next(outfile).split()
+        lat,lon = float(head[1]),float(head[3])
+        for jj in [tre,trn,trz]:
+            jj.stats.sac = {}
+            jj.stats.starttime = starttime
+            jj.stats.station = stat_list[ii].split()[1]
+            jj.stats.network = stat_list[ii].split()[2]
+            jj.stats.sampling_rate = sr
+            jj.stats.npts = npts
+            jj.stats.sac['stla'] = lat
+            jj.stats.sac['stlo'] = lon
+            jj.stats.sac['evla'] = evla
+            jj.stats.sac['evlo'] = evlo
+        d = np.genfromtxt(out_list[ii],skip_header=2)
+        t,z,n,e = d[:,0],d[:,1],d[:,2],d[:,3]
+        tre.data = e
+        trn.data = n
+        trz.data = z
+        ste.append(tre)
+        stn.append(trn)
+        stz.append(trz)
+    return ste,stn,stz
+
+def get_lists():
+    stat_list = open('gemini_STATIONS').read().strip().split('\n')[3::]
+    out_list = glob.glob('./outfile*')
+    out_list.sort()
+    if len(stat_list) == len(out_list):
+        return stat_list,out_list
+    else:
+        print('lengths dont match')
+
+main()

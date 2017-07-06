@@ -1,13 +1,13 @@
 #!/home/samhaug/anaconda2/bin/python
-import obspy
+from obspy import read
 from sys import argv
-import numpy as np
+from seispy.convert import gemini_stations
 
 '''
 make STATIONS file for gemini
 '''
 
-st = obspy.read(argv[1])
-seispy.convert.gemini_stations(st)
+st = read(argv[1])
+gemini_stations(st)
 
 

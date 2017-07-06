@@ -17,9 +17,18 @@ run_name=$1
 Seismo_Length=3200
 #Damping time should be Seismo_Length / 5 
 Damping_Time=640
+#Frequency in mHz
+Minimum_Frequency=0
+Maximum_Frequency=20
+#1 for attenuation, 0 for pure elastic
+Dispersion_Switch=0
+#Angular order limits
+Minimum_Degree=0
+Maximum_Degree=5000
+Source_Depth=100
 Earth_Model=iasp91
 Omega_Ell_Window=lw200mhz
-Source_File=C022980A
+Source_File=C201702241728A_cmt
 Station_File=gemini_STATIONS
 
 mkdir ${run_name}
@@ -33,31 +42,33 @@ cp ${Omega_Ell_Window} ${run_name}
 cp sources/${Source_File} ${run_name}
 cp ${Earth_Model} ${run_name}
 
-echo '#-------------------------------------------------------------------'
-echo '#                                                                   '
-echo '#                            Run GEMINI                             '
-echo '#                            ~~~~~~~~~~                             '  
-echo '#                            ~~~~~~~~~~                             '
-echo '#-------------------------------------------------------------------'
+echo '#------------------------------------------------------------------#'
+echo '#                                                                  #'
+echo '#                            Run GEMINI                            #'
+echo '#                            ~~~~~~~~~~                            #'  
+echo '#                            ~~~~~~~~~~                            #'
+echo '#------------------------------------------------------------------#'
 
 (cd ${run_name} && ./gemini.sc ${Earth_Model} ${Omega_Ell_Window} \
-                    ${Seismo_Length} ${Damping_Time})
+                    ${Seismo_Length} ${Damping_Time} ${Minimum_Frequency}\
+                    ${Maximum_Frequency} ${Dispersion_Switch} \
+                    ${Minimum_Degree} ${Maximum_Degree} ${Source_Depth})
 
-echo '#-------------------------------------------------------------------'
-echo '#                                                                   '
-echo '#                            Run DISPEC                             '
-echo '#                            ~~~~~~~~~~                             '  
-echo '#                            ~~~~~~~~~~                             '
-echo '#-------------------------------------------------------------------'
+echo '#------------------------------------------------------------------#'
+echo '#                                                                  #'
+echo '#                            Run DISPEC                            #'
+echo '#                            ~~~~~~~~~~                            #'  
+echo '#                            ~~~~~~~~~~                            #'
+echo '#------------------------------------------------------------------#'
 
 (cd ${run_name} && ./disp.sc ${Source_File} ${Station_File})
 
-echo '#-------------------------------------------------------------------'
-echo '#                                                                   '
-echo '#                            Run TOTIDO                             '
-echo '#                            ~~~~~~~~~~                             '  
-echo '#                            ~~~~~~~~~~                             '
-echo '#-------------------------------------------------------------------'
+echo '#------------------------------------------------------------------#'
+echo '#                                                                  #'
+echo '#                            Run TOTIDO                            #'
+echo '#                            ~~~~~~~~~~                            #'  
+echo '#                            ~~~~~~~~~~                            #'
+echo '#------------------------------------------------------------------#'
 
 (cd ${run_name} && ./to.sc spec3k ${Seismo_Length})
 
@@ -65,7 +76,7 @@ echo '#-------------------------------------------------------------------'
 # Execute this script to neatly pack gemini output into a folder that 
 # gemini_pickle can turn into an obspy pickle file
 # Splits a single Ascii output file into a file for each seismogram
-(cd ${run_name} && csplit --digits=2  --quiet --prefix=outfile seismogr "/REC/-0" "{*}")
-(cd ${run_name} && mv outfile00 meta_param)
+(cd ${run_name} && csplit --digits=4  --quiet --prefix=outfile seismogr "/REC/-0" "{*}")
+(cd ${run_name} && mv outfile0000 meta_param)
 
 

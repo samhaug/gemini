@@ -31,21 +31,21 @@ Damping_Time=$4
 
 # Minimum frequency in millihertz. You can set it to zero, 'Gemini' will
 # adjust it to at least 1/Seismo_Length
-Minimum_Frequency=0
+Minimum_Frequency=$5
 
 # Maximum frequency in millihertz
-Maximum_Frequency=20
+Maximum_Frequency=$6
 
 # Take into account dispersion (attenuation), which leads to 
 # frequency-dependent elastic moduli. Set 1 for 'yes', 0 for 'no'.
-Dispersion_Switch=1
+Dispersion_Switch=$7
 
 # Minimum degree of spherical harmonics. We recommend '0'.
-Minimum_Degree=0
+Minimum_Degree=$8
 
 # Maximum degree of spherical harmonics. 'Gemini' will not compute
 # beyond this limit.
-Maximum_Degree=1000
+Maximum_Degree=$9
 
 # Step in the degree-domain. Normally this is '1', because of the
 # 2*Pi-periodicity. Setting this greater than '1' speeds up the
@@ -54,7 +54,7 @@ Maximum_Degree=1000
 Degree_Step=1
 
 # Depth of the source in [km]. You can set this to Zero, if you like
-Source_Depth=100.
+Source_Depth=$10
 
 # Accuracy which rules the performance of the integration 
 # algorithm (Bulirsch-Stoer). Don't be too greedy, 1.e-4 should be

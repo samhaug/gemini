@@ -7,48 +7,80 @@ f = open(argv[1],'r')
 f = f.read()
 l = f.strip().split('\n')
 
+## First Line
 evid = l[1].split()[0]
-region = '_'.join(l[0].strip().split()[8::])
-year = l[0].split()[1].split('/')[0]
 month = l[0].split()[1].split('/')[1]
 day = l[0].split()[1].split('/')[1]
+year = l[0].split()[1].split('/')[0]
 hour = l[0].split()[2].split(':')[0]
 min = l[0].split()[2].split(':')[1]
 sec = l[0].split()[2].split(':')[2]
 lat = l[0].split()[3]
 lon = l[0].split()[4]
-mag = l[0].split()[7]
-h = l[2].split()[7]
-ex = l[3].strip().split()[0]
-step = '1.0'
-halfd = l[1].split()[-1]
-M_o = l[-1].split()[10]
-M_rr = l[3].split()[1]
-M_tt = l[3].split()[3]
-M_pp = l[3].split()[5]
-M_rt = l[3].split()[7]
-M_rp = l[3].split()[9]
-M_tp = l[3].split()[11]
-eig1 = ' '.join(l[-1].strip().split()[1:4])
-eig2 = ' '.join(l[-1].strip().split()[4:7])
-eig3 = ' '.join(l[-1].strip().split()[7:10])
-scale_mo = l[-1].strip().split()[10]
-strike1,dip1,slip1,strike2,dip2,slip2 = l[-1].split()[11::]
+depth = l[0].split()[5]
+mb = l[0].split()[6]
+ms = l[0].split()[7]
+region = ' '.join(l[0].strip().split()[8::])
 
-#jday = str(int(month)*12+int(day))
-#M_o =  M_o+'e'+M_n
-#M_n = '1e'+M_n
+## Second Line
+epii = l[0].split()[0]
+c_time = l[2].split()[1]
+c_time_e = l[2].split()[2]
+c_lat = l[2].split()[3]
+c_lat_e = l[2].split()[4]
+c_lon = l[2].split()[5]
+c_lon_e = l[2].split()[6] 
+c_h = l[2].split()[7]
+c_h_e = l[2].split()[8]
+
+## Third Line
+dur =    l[1].split()[-1]
+ex =     l[3].split()[0]
+Mrr =    float(l[3].split()[1])
+Mrr_e =  float(l[3].split()[2])
+Mtt =    float(l[3].split()[3])
+Mtt_e =  float(l[3].split()[4])
+Mpp =    float(l[3].split()[5])
+Mpp_e =  float(l[3].split()[6])
+Mrt =    float(l[3].split()[7])
+Mrt_e =  float(l[3].split()[8])
+Mrp =    float(l[3].split()[9])
+Mrp_e =  float(l[3].split()[10])
+Mtp =    float(l[3].split()[11])
+Mtp_e =  float(l[3].split()[12])
+
+## Fourth Line
+eig1 =      float(l[-1].strip().split()[1])
+eig1_p =    int(l[-1].strip().split()[2])
+eig1_a =    int(l[-1].strip().split()[3])
+eig2 =      float(l[-1].strip().split()[4])
+eig2_p =    int(l[-1].strip().split()[5])
+eig2_a =    int(l[-1].strip().split()[6])
+eig3 =      float(l[-1].strip().split()[7])
+eig3_p =    int(l[-1].strip().split()[8])
+eig3_a =    int(l[-1].strip().split()[9])
+scale_mo =  float(l[-1].strip().split()[10])
+strike1 =   int(l[-1].split()[11])
+dip1 =      int(l[-1].split()[12])
+slip1 =     int(l[-1].split()[13])
+strike2 =   int(l[-1].split()[14])
+dip2 =      int(l[-1].split()[15])
+slip2 =     int(l[-1].split()[16])
+
 
 out_cmt = open(evid+'_cmt','w')
 
-out_cmt.write('{} {}/{}/{} {}:{}:{} {} {} {} {} {} {}\n'
-              .format(evid,year,month,day,hour,min,sec,lat,lon,h,mag,'0.0',region))
-out_cmt.write('MLI BW: 0 0 0 MW: 0 0 0 DT=  0  0 {} 0 {} 0 {} 0 \n'
-              .format(lat,lon,h))
-out_cmt.write('DUR {} EX {} {} 0 {} 0 {} 0 {} 0 {} 0 {} 0\n'
-              .format(halfd,ex,M_rr,M_tt,M_pp,M_rt,M_rp,M_tp))
-out_cmt.write('{} {} {} {} {} {} {} {} {} {}'
-              .format(eig1,eig2,eig3,scale_mo,strike1,dip1,slip1,strike2,dip2,slip2))
+out_cmt.write('{} {}/{}/{} {}:{}:{} {} {} {}{}{}{}\n'
+        .format(evid[0:8],month,day,year[2::],hour,min,sec,
+                lat,lon,depth,mb,ms,region))
+out_cmt.write('{} BW: 5 14  45 MW: 0 0   0 DT=  {} {} {} {} {} {} {} {} \n'
+              .format(epii,c_time,c_time_e,c_lat,c_lat_e,c_lon,c_lon_e,
+                      c_h,c_h_e))
+out_cmt.write(' DUR {} EX {} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f}\n'
+              .format(dur,ex,Mrr,Mrr_e,Mtt,Mtt_e,Mpp,Mpp_e,Mrt,
+                      Mrt_e,Mrp,Mrp_e,Mtp,Mtp_e))
+out_cmt.write('   {:0.2f} {} {} {:0.2f} {} {} {:0.2f} {} {} {:0.2f} {} {} {} {} {} {}'
+              .format(eig1,eig1_p,eig1_a,eig2,eig2_p,eig2_a,eig3,eig3_p,eig3_a,scale_mo,strike1,dip1,slip1,strike2,dip2,slip2))
 
 
 
