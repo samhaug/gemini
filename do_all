@@ -14,9 +14,9 @@ exit
 fi        
 
 run_name=$1
-Seismo_Length=3200
+Seismo_Length=1200
 #Damping time should be Seismo_Length / 5 
-Damping_Time=640
+Damping_Time=240
 #Frequency in mHz
 Minimum_Frequency=0
 Maximum_Frequency=20
@@ -24,11 +24,11 @@ Maximum_Frequency=20
 Dispersion_Switch=0
 #Angular order limits
 Minimum_Degree=0
-Maximum_Degree=5000
+Maximum_Degree=2000
 Source_Depth=100
 Earth_Model=iasp91
 Omega_Ell_Window=lw200mhz
-Source_File=C201702241728A_cmt
+Source_File=C040899B_cmt
 Station_File=gemini_STATIONS
 
 mkdir ${run_name}

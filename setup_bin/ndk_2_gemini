@@ -14,28 +14,35 @@ day = l[0].split()[1].split('/')[1]
 year = l[0].split()[1].split('/')[0]
 hour = l[0].split()[2].split(':')[0]
 min = l[0].split()[2].split(':')[1]
-sec = l[0].split()[2].split(':')[2]
-lat = l[0].split()[3]
-lon = l[0].split()[4]
-depth = l[0].split()[5]
-mb = l[0].split()[6]
-ms = l[0].split()[7]
+sec = float(l[0].split()[2].split(':')[2])
+lat = float(l[0].split()[3])
+lon = float(l[0].split()[4])
+depth = float(l[0].split()[5])
+mb = float(l[0].split()[6])
+ms = float(l[0].split()[7])
 region = ' '.join(l[0].strip().split()[8::])
 
 ## Second Line
 epii = l[0].split()[0]
-c_time = l[2].split()[1]
-c_time_e = l[2].split()[2]
-c_lat = l[2].split()[3]
-c_lat_e = l[2].split()[4]
-c_lon = l[2].split()[5]
-c_lon_e = l[2].split()[6] 
-c_h = l[2].split()[7]
-c_h_e = l[2].split()[8]
+epii = 'PDE'
+b1 = l[1].split(':')[1].split()[0]
+b2 = l[1].split(':')[1].split()[1]
+b3 = l[1].split(':')[1].split()[2]
+m1 = l[1].split(':')[3].split()[0]
+m2 = l[1].split(':')[3].split()[1]
+m3 = l[1].split(':')[3].split()[2]
+c_time =     float(l[2].split()[1])
+c_time_e =   float(l[2].split()[2])
+c_lat =      float(l[2].split()[3])
+c_lat_e =    float(l[2].split()[4])
+c_lon =      float(l[2].split()[5])
+c_lon_e =    float(l[2].split()[6])
+c_h =        float(l[2].split()[7])
+c_h_e =      float(l[2].split()[8])
 
 ## Third Line
-dur =    l[1].split()[-1]
-ex =     l[3].split()[0]
+dur =    float(l[1].split()[-1])
+ex =     int(l[3].split()[0])
 Mrr =    float(l[3].split()[1])
 Mrr_e =  float(l[3].split()[2])
 Mtt =    float(l[3].split()[3])
@@ -67,20 +74,17 @@ strike2 =   int(l[-1].split()[14])
 dip2 =      int(l[-1].split()[15])
 slip2 =     int(l[-1].split()[16])
 
-
 out_cmt = open(evid+'_cmt','w')
+out_cmt.write('%s %s/%s/%s %s:%s:%4.1f%7.2f%8.2f%6.1f%3.1f%3.1f%s\n'%(
+    evid[0:8],month,day,year[2::],hour,min,sec,lat,lon,depth,mb,ms,region[0:24]))
+out_cmt.write('PDE BW:68173  45 MW:6299  135 DT=%6.1f%4.1f%7.2f%5.2f%8.2f%5.2f%6.1f%5.1f\n'%(
+    c_time,c_time_e,c_lat,c_lat_e,c_lon,c_lon_e,c_h,c_h_e))
+out_cmt.write(' DUR%4.1f EX %2d%6.2f%5.2f%6.2f%5.2f%6.2f%5.2f%6.2f%5.2f%6.2f%5.2f%6.2f%5.2f\n'%(
+     dur,ex,Mrr,Mrr_e,Mtt,Mtt_e,Mpp,Mpp_e,Mrt,Mrt_e,Mrp,Mrp_e,Mtp,Mtp_e))
+out_cmt.write('%7.2f%3d%4d%7.2f%3d%4d%7.2f%3d%4d%7.2f%4d%3d%5d%4d%3d%5d\n'%(
+              eig1,eig1_p,eig1_a,eig2,eig2_p,eig2_a,eig3,eig3_p,
+              eig3_a,scale_mo,strike1,dip1,slip1,strike2,dip2,slip2))
 
-out_cmt.write('{} {}/{}/{} {}:{}:{} {} {} {}{}{}{}\n'
-        .format(evid[0:8],month,day,year[2::],hour,min,sec,
-                lat,lon,depth,mb,ms,region))
-out_cmt.write('{} BW: 5 14  45 MW: 0 0   0 DT=  {} {} {} {} {} {} {} {} \n'
-              .format(epii,c_time,c_time_e,c_lat,c_lat_e,c_lon,c_lon_e,
-                      c_h,c_h_e))
-out_cmt.write(' DUR {} EX {} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f} {:0.2f}\n'
-              .format(dur,ex,Mrr,Mrr_e,Mtt,Mtt_e,Mpp,Mpp_e,Mrt,
-                      Mrt_e,Mrp,Mrp_e,Mtp,Mtp_e))
-out_cmt.write('   {:0.2f} {} {} {:0.2f} {} {} {:0.2f} {} {} {:0.2f} {} {} {} {} {} {}'
-              .format(eig1,eig1_p,eig1_a,eig2,eig2_p,eig2_a,eig3,eig3_p,eig3_a,scale_mo,strike1,dip1,slip1,strike2,dip2,slip2))
 
 
 
