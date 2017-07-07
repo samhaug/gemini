@@ -28,7 +28,7 @@ MaximumOrder=2
 
 # This file must contain the window in the omega-l-domain also needed
 # by GEMINI
-OmEllWindow=lw200mhz
+OmEllWindow=$3
 
 # Give here the length of the taper which is applied on the l-range
 # to avoid cut-off-effects. This is an empirical number, don't choose

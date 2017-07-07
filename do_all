@@ -14,6 +14,10 @@ exit
 fi        
 
 run_name=$1
+# variable to 1 for P-SV-motion only; set it to 2 for SH-motion only;
+# set it to 3 to calculate all P-SV- and SH-motion.
+What_Motion=3
+#seconds of seismogram_length
 Seismo_Length=1200
 #Damping time should be Seismo_Length / 5 
 Damping_Time=240
@@ -28,7 +32,7 @@ Maximum_Degree=2000
 Source_Depth=100
 Earth_Model=iasp91
 Omega_Ell_Window=lw200mhz
-Source_File=C040899B_cmt
+Source_File=C062003D
 Station_File=gemini_STATIONS
 
 mkdir ${run_name}
@@ -52,7 +56,8 @@ echo '#------------------------------------------------------------------#'
 (cd ${run_name} && ./gemini.sc ${Earth_Model} ${Omega_Ell_Window} \
                     ${Seismo_Length} ${Damping_Time} ${Minimum_Frequency}\
                     ${Maximum_Frequency} ${Dispersion_Switch} \
-                    ${Minimum_Degree} ${Maximum_Degree} ${Source_Depth})
+                    ${Minimum_Degree} ${Maximum_Degree} ${Source_Depth}\
+                    ${What_Motion})
 
 echo '#------------------------------------------------------------------#'
 echo '#                                                                  #'
@@ -61,7 +66,7 @@ echo '#                            ~~~~~~~~~~                            #'
 echo '#                            ~~~~~~~~~~                            #'
 echo '#------------------------------------------------------------------#'
 
-(cd ${run_name} && ./disp.sc ${Source_File} ${Station_File})
+(cd ${run_name} && ./disp.sc ${Source_File} ${Station_File} ${Omega_Ell_Window})
 
 echo '#------------------------------------------------------------------#'
 echo '#                                                                  #'

@@ -16,7 +16,7 @@ Redirect_to=/dev/tty
 # Choose the kind of motion you like to calculate. Set the
 # variable to 1 for P-SV-motion only; set it to 2 for SH-motion only;
 # set it to 3 to calculate all P-SV- and SH-motion.
-What_Motion=3
+What_Motion=$11
 
 # Verbose level for monitor-output. '0' yields monitoring every 
 # frequency; n every degree if mod(l,n)=0
