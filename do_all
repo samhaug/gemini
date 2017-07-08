@@ -3,7 +3,7 @@
 #######################################################################
 #
 #        Samuel M. Haugland July 2017. Run Gemini,Dispec,Totido all 
-#        at once. Build an output directory
+#        at once. Build an output directory with relevant info.
 #
 #######################################################################
 
@@ -14,26 +14,32 @@ exit
 fi        
 
 run_name=$1
-# variable to 1 for P-SV-motion only; set it to 2 for SH-motion only;
-# set it to 3 to calculate all P-SV- and SH-motion.
-What_Motion=3
-#seconds of seismogram_length
-Seismo_Length=1200
-#Damping time should be Seismo_Length / 5 
-Damping_Time=240
-#Frequency in mHz
+#Source depth in km
+Source_Depth=100
+#Gemini formatted Ascii file
+Earth_Model=iasp91
+#Use ndk_2_gemini to make this file
+Source_File=C062003D
+#use gemini_station to make this file
+Station_File=gemini_STATIONS
+#Frequency bounds in mHz
 Minimum_Frequency=0
 Maximum_Frequency=20
-#1 for attenuation, 0 for pure elastic
-Dispersion_Switch=0
-#Angular order limits
+#Seismogram length in seconds
+Seismo_Length=8200
+#Damping time should be Seismo_Length / 5 
+Damping_Time=1640
+#1 for P-SV-motion only
+#2 for SH-motion only;
+#3 for both P-SV- and SH-motion.
+What_Motion=2
+#1 for Viscoelastic 
+#0 for Elastic
+Dispersion_Switch=1
+#Angular order bounds
 Minimum_Degree=0
 Maximum_Degree=2000
-Source_Depth=100
-Earth_Model=iasp91
 Omega_Ell_Window=lw200mhz
-Source_File=C062003D
-Station_File=gemini_STATIONS
 
 mkdir ${run_name}
 mkdir ${run_name}/green

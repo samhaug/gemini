@@ -23,7 +23,15 @@ import glob
 def main():
     stat_list,out_list = get_lists()
     ste,stn,stz = make_streams(stat_list,out_list)
-    ste.write('ste.pk',format='PICKLE')
+    ste = seispy.convert.set_az_gcarc(ste)
+    stn = seispy.convert.set_az_gcarc(stn)
+    stz = seispy.convert.set_az_gcarc(stz)
+    ste.write('st_E.pk',format='PICKLE')
+    ste.write('st_Z.pk',format='PICKLE')
+    ste.write('st_N.pk',format='PICKLE')
+    r,t = seispy.rotate.obspy_rotate_ne_rt(stn,ste)
+    r.write('st_R.pk',format='PICKLE')
+    t.write('st_T.pk',format='PICKLE')
 
 def make_streams(stat_list,out_list):
     ste = obspy.core.stream.Stream()
@@ -44,8 +52,9 @@ def make_streams(stat_list,out_list):
     meta = open('meta_param','r').read().strip().split('\n')
     npts = meta[1].split()[1]
     sr = meta[1].split()[3]
-    evla = meta[0].split()[4]
-    evlo = meta[0].split()[5]
+    evla = float(meta[0].split()[3])
+    evlo = float(meta[0].split()[4])
+    evdp = float(meta[0].split()[5])
 
     for ii in range(0,len(stat_list)):
         tre = obspy.core.trace.Trace()
@@ -65,6 +74,8 @@ def make_streams(stat_list,out_list):
             jj.stats.sac['stlo'] = lon
             jj.stats.sac['evla'] = evla
             jj.stats.sac['evlo'] = evlo
+            jj.stats.sac['evdp'] = evlo
+            jj.stats.sac['o'] = 0
         d = np.genfromtxt(out_list[ii],skip_header=2)
         t,z,n,e = d[:,0],d[:,1],d[:,2],d[:,3]
         tre.data = e
