@@ -15,7 +15,6 @@ Created By : Samuel M. Haugland
 import numpy as np
 from subprocess import call
 from os import listdir
-import h5py
 import obspy
 import seispy
 import glob
@@ -27,8 +26,8 @@ def main():
     stn = seispy.convert.set_az_gcarc(stn)
     stz = seispy.convert.set_az_gcarc(stz)
     ste.write('st_E.pk',format='PICKLE')
-    ste.write('st_Z.pk',format='PICKLE')
-    ste.write('st_N.pk',format='PICKLE')
+    stn.write('st_N.pk',format='PICKLE')
+    stz.write('st_Z.pk',format='PICKLE')
     r,t = seispy.rotate.obspy_rotate_ne_rt(stn,ste)
     r.write('st_R.pk',format='PICKLE')
     t.write('st_T.pk',format='PICKLE')

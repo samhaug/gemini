@@ -20,12 +20,12 @@ Source_Depth=500
 #Gemini formatted Ascii file
 Earth_Model=iasp91
 #Use ndk_2_gemini to make this file
-Source_File=C062003D
+Source_File=C062003D_cmt
 #Use gemini_station to make this file
 Station_File=gemini_STATIONS
 #Frequency bounds in mHz
 Minimum_Frequency=0
-Maximum_Frequency=200
+Maximum_Frequency=500
 #Seismogram length in seconds
 Seismo_Length=1800
 #Damping time should be Seismo_Length / 5 
@@ -33,7 +33,7 @@ Damping_Time=360
 #1 for P-SV-motion only
 #2 for SH-motion only;
 #3 for both P-SV- and SH-motion.
-What_Motion=3
+What_Motion=2
 #d for displacement
 #v for velocity
 #a for acceleration
@@ -41,11 +41,25 @@ What_Motion=3
 SeismoType=d
 #1 for Viscoelastic 
 #0 for Elastic
-Dispersion_Switch=1
+Dispersion_Switch=0
 #Angular order bounds
 Minimum_Degree=0
-Maximum_Degree=9000
+Maximum_Degree=10000
 Omega_Ell_Window=lw200mhz
+# To apply a Butterworth-filter (low and high pass) 
+# to the seismogram specify in the string
+# the number n of filters and then n times  order and corner frequency.
+# For example: One low pass with order 7 and corner frequency 0.01 Hz
+#              Two high pass: order 3 and corner freq. 0.008 Hz AND 
+#                             order 2 and corner freq. 0.007 Hz
+#             -------> type: 1  7  0.01
+#                            2  3  0.008  2 0.007
+LowpassNumber=1
+LowpassOrder=5
+LowpassCF=5
+HighpassNumber=1
+HighpassOrder=0
+HighpassCF=0.0025
 
 mkdir ${run_name}
 mkdir ${run_name}/green
@@ -87,7 +101,9 @@ echo '#                            ~~~~~~~~~~                            #'
 echo '#                            ~~~~~~~~~~                            #'
 echo '#------------------------------------------------------------------#'
 
-(cd ${run_name} && ./to.sc spec3k ${Seismo_Length} ${SeismoType})
+(cd ${run_name} && ./to.sc spec3k ${Seismo_Length} ${SeismoType}\
+                     ${LowpassNumber} ${LowpassOrder} ${LowpassCF}\
+                     ${HighpassNumber} ${HighpassOrder} ${HighpassCF})
 
 # Samuel Haugland July 2017
 # Execute this script to neatly pack gemini output into a folder that 
@@ -95,5 +111,13 @@ echo '#------------------------------------------------------------------#'
 # Splits a single Ascii output file into a file for each seismogram
 (cd ${run_name} && csplit --digits=4  --quiet --prefix=outfile seismogr "/REC/-0" "{*}")
 (cd ${run_name} && mv outfile0000 meta_param)
+cd ${run_name}
+for d in *;
+do
+    chmod -w $d
+done
+chmod +w green
+
+   
 
 

@@ -76,5 +76,3 @@ $ReceiverType
 $Receiver
 $NSEWCoordinates
 ENDE
-
-

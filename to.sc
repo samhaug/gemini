@@ -31,15 +31,15 @@ TimeShift='0.0'
 #                             order 2 and corner freq. 0.007 Hz
 #             -------> type: 1  7  0.01
 #                            2  3  0.008  2 0.007
-LowpassNumber=1
-LowpassOrder=5
-LowpassCF=0.025
-HighpassNumber=1
-HighpassOrder=0
-HighpassCF=0.0025
+LowpassNumber=$4
+LowpassOrder=$5
+LowpassCF=$6
+HighpassNumber=$7
+HighpassOrder=$8
+HighpassCF=$9
 
 #  either a for Ascii output or s for SFF output
-OutputFormat="s"
+OutputFormat="a"
 
 # The Fast Fourier Transform needs 2**n samples. If the spectra do not have
 # such a length zeros will be appended to accomplish this. If you give here
