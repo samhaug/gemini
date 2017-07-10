@@ -6,10 +6,20 @@ from matplotlib import pyplot as plt
 def main():
     smooth_dict = make_smooth_dict()
     nlay,pco = get_header(smooth_dict)
-    write_model('fuck',smooth_dict,nlay,pco)
+    write_model('SMOOTHPREM',smooth_dict,nlay,pco)
 
 def write_model(fname,sd,nlay,pco):
     with open(fname,'w') as f:
+        f.write('#--------------------------------------------------------------------\n')
+        f.write('#                      Earth model SMOOTHPREM                        \n')
+        f.write('#       ( isotropic PREM with no ocean and smooth transition zone)   \n')
+        f.write('#                                                                    \n')
+        f.write('# Quality factors are taken at 1 Hz !!                               \n')
+        f.write('# The ocean is removed by enlarging the thickness its underlying solid\n')
+        f.write('# layer by the ocean thickness.                                      \n')
+        f.write('#------------------------------------------------------------         \n')
+        f.write('#                                                                     \n')
+        f.write('# +++++++ Do not insert any comments below this line !! +++++++++++++++\n')
         f.write('%2d\n'%nlay)
         for ii in pco[::-1]:
             f.write('%2d'%ii)
@@ -19,22 +29,27 @@ def write_model(fname,sd,nlay,pco):
         f.write('-'*74+'\n')
         for keys in reversed(sorted(sd.keys())):
             if type(sd[keys]['rho']) == float:
-                f.write('%6.1f%9.4f%9.4f%9.4f%9.4f%9.4f\n'%(
+                f.write('%6.1f%9.4f%9.4f%9.4f%9.4f%9.4f%7.1f%9.1f%5.1f\n'%(
                          sd[keys]['h'],sd[keys]['rho'],sd[keys]['vp'],
-                         sd[keys]['vp'],sd[keys]['vs'],sd[keys]['vs']))
-                f.write('\n')
+                         sd[keys]['vp'],sd[keys]['vs'],sd[keys]['vs'],
+                         sd[keys]['qmu'],sd[keys]['qk'],sd[keys]['eta']))
+                f.write('     \n')
             elif type(sd[keys]['rho']) == tuple:
                 for idx in range(len(sd[keys]['rho'])):
                     if idx == 0:
-                        f.write('%6.1f%9.4f%9.4f%9.4f%9.4f%9.4f\n'%(
+                        f.write('%6.1f%9.4f%9.4f%9.4f%9.4f%9.4f%7.1f%9.1f%5.1f\n'%(
                          sd[keys]['h'],sd[keys]['rho'][idx],sd[keys]['vp'][idx],
-                         sd[keys]['vp'][idx],sd[keys]['vs'][idx],sd[keys]['vs'][idx]))
+                         sd[keys]['vp'][idx],sd[keys]['vs'][idx],sd[keys]['vs'][idx],
+                         sd[keys]['qmu'],sd[keys]['qk'],sd[keys]['eta'][idx]))
                     else:
-                        f.write('%15.4f%9.4f%9.4f%9.4f%9.4f\n'%(
+                        f.write('%15.4f%9.4f%9.4f%9.4f%9.4f%21.1f\n'%(
                          sd[keys]['rho'][idx],sd[keys]['vp'][idx],
-                         sd[keys]['vp'][idx],sd[keys]['vs'][idx],sd[keys]['vs'][idx]))
-                f.write('\n')
-        f.write('\n')
+                         sd[keys]['vp'][idx],sd[keys]['vs'][idx],sd[keys]['vs'][idx],
+                         sd[keys]['eta'][idx]))
+                f.write('    \n')
+
+        f.write('     \n')
+        f.write('%6.1f\n'%6371.0)
 
 def get_header(smooth_dict):
     nlay = len(smooth_dict.keys())
@@ -54,9 +69,9 @@ def make_smooth_dict():
     smooth_dict[1]['vs'] = (4.49100712)
     smooth_dict[1]['rho'] = (3.38074821)
     smooth_dict[1]['vp'] = (8.11061727)
-    smooth_dict[2]['qmu'] = (600.0)
-    smooth_dict[2]['qk'] = (57823.0)
-    smooth_dict[2]['eta'] = (1.0)
+    smooth_dict[1]['qmu'] = (600.0)
+    smooth_dict[1]['qk'] = (57823.0)
+    smooth_dict[1]['eta'] = (1.0)
 
     smooth_dict[2] = {}
     smooth_dict[2]['h'] = 6181.0

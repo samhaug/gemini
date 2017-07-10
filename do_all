@@ -16,16 +16,16 @@ fi
 run_name=$1
 #Source depth in km
 #DO NOT CHANGE THE PLACEMENT OF Source_Depth LINE! gemini_pickle looks for it.
-Source_Depth=500
+Source_Depth=100
 #Gemini formatted Ascii file
-Earth_Model=iasp91
+Earth_Model=stutprem
 #Use ndk_2_gemini to make this file
 Source_File=C062003D_cmt
 #Use gemini_station to make this file
 Station_File=gemini_STATIONS
 #Frequency bounds in mHz
 Minimum_Frequency=0
-Maximum_Frequency=500
+Maximum_Frequency=200
 #Seismogram length in seconds
 Seismo_Length=1800
 #Damping time should be Seismo_Length / 5 
@@ -33,7 +33,7 @@ Damping_Time=360
 #1 for P-SV-motion only
 #2 for SH-motion only;
 #3 for both P-SV- and SH-motion.
-What_Motion=2
+What_Motion=1
 #d for displacement
 #v for velocity
 #a for acceleration
@@ -56,7 +56,7 @@ Omega_Ell_Window=lw200mhz
 #                            2  3  0.008  2 0.007
 LowpassNumber=1
 LowpassOrder=5
-LowpassCF=5
+LowpassCF=1
 HighpassNumber=1
 HighpassOrder=0
 HighpassCF=0.0025
@@ -111,12 +111,12 @@ echo '#------------------------------------------------------------------#'
 # Splits a single Ascii output file into a file for each seismogram
 (cd ${run_name} && csplit --digits=4  --quiet --prefix=outfile seismogr "/REC/-0" "{*}")
 (cd ${run_name} && mv outfile0000 meta_param)
-cd ${run_name}
-for d in *;
-do
-    chmod -w $d
-done
-chmod +w green
+#(cd ${run_name}
+#for d in *;
+#do
+#    chmod -w $d
+#done
+#chmod +w green)
 
    
 

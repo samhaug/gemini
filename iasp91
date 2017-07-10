@@ -1,6 +1,12 @@
 #------------------------------------------------------------
 # Isotropic Earth model  IASP91 with quality factors from PREM at 1 Hz
 #
+#                            
+#       
+#                                                                    
+#                                
+# 
+# 
 # +++++++ Do not insert any comments below this line !! +++++++++++++++
 11                         Number of layers
  3 4 4 4 4 2 2 2 2 1 1     Number of polynomal coeffs in each layer

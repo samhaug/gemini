@@ -1,0 +1,73 @@
+#!/home/samhaug/anaconda2/bin/python
+
+'''
+==============================================================================
+
+File Name : plot_model.py
+Purpose : use to plot gemini input model
+Creation Date : 09-07-2017
+Last Modified : Mon 10 Jul 2017 10:48:30 AM EDT
+Created By : Samuel M. Haugland
+
+==============================================================================
+'''
+
+import numpy as np
+from matplotlib import pyplot as plt
+from sys import argv
+
+def main():
+    a = read_file(argv[1])
+    nlay = int(a[10].split()[0])
+    coef = [int(ii) for ii in a[11].split()[0:nlay]]
+    a = a[17::]
+    for ii in a:
+        if ii.isspace():
+            a.remove(ii)
+
+    poly_list = []
+    jump = 0
+    for idx,ii in enumerate(coef):
+        poly_list.append(a[jump:jump+ii])
+        jump += ii
+    #for ii in poly_list:
+    #    print ii[0].strip().split()
+
+    rho_poly = []
+    vs_poly = []
+    vp_poly = []
+    for idx,ii in enumerate(poly_list):
+        poly_len = len(ii)
+        try:
+            r1 = float(ii[0].strip().split()[0])
+            r2 = float(poly_list[idx+1][0].strip().split()[0])
+        except IndexError:
+            r1 = float(ii[0].strip().split()[0])
+            r2 = 6371.
+        r = np.linspace(r1,r2)/6371.
+        rho_coef = []
+        vs_coef = []
+        vp_coef = []
+        for jj in ii:
+            rho_coef.append(float(jj.strip().split()[1]))
+            vp_coef.append(float(jj.strip().split()[2]))
+            vs_coef.append(float(jj.strip().split()[4]))
+        rho_p = np.poly1d(rho_coef[::-1])
+        vp_p = np.poly1d(vp_coef[::-1])
+        vs_p = np.poly1d(vs_coef[::-1])
+        rho_poly.append([r,rho_p(r)])
+        vp_poly.append([r,vp_p(r)])
+        vs_poly.append([r,vs_p(r)])
+    for ii in rho_poly:
+        plt.plot(ii[0],ii[1],color='k')
+    for ii in vp_poly:
+        plt.plot(ii[0],ii[1],color='r')
+    for ii in vs_poly:
+        plt.plot(ii[0],ii[1],color='b')
+    plt.show()
+
+#def grab_coef(poly_list,coef):
+def read_file(fname):
+    return open(fname).read().strip().split('\n')
+
+main()
