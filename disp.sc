@@ -24,7 +24,7 @@ SourceMech=m
 
 # Set maximum order 'm' in the sum over spherical harmonics here.
 # For example, set 'm=0' if the source is explosion type
-MaximumOrder=2
+MaximumOrder=$4
 
 # This file must contain the window in the omega-l-domain also needed
 # by GEMINI

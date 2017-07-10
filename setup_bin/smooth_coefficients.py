@@ -142,9 +142,9 @@ def make_smooth_dict():
 
     smooth_dict[7]={}
     smooth_dict[7]['h'] = 5731.
-    smooth_dict[7]['rho'] = (5.3197,1.4836)
-    smooth_dict[7]['vp'] = (19.0957,9.8672)
-    smooth_dict[7]['vs'] = (9.9839,4.9324)
+    smooth_dict[7]['rho'] = (5.3197,-1.4836)
+    smooth_dict[7]['vp'] = (19.0957,-9.8672)
+    smooth_dict[7]['vs'] = (9.9839,-4.9324)
     smooth_dict[7]['qmu'] = (143.0)
     smooth_dict[7]['qk'] = (57823.0)
     smooth_dict[7]['eta'] = (1.0,0.0)
@@ -171,18 +171,18 @@ def make_smooth_dict():
 
     smooth_dict[9]={}
     smooth_dict[9]['h'] = 5600.
-    smooth_dict[9]['rho'] = (7.9565,6.4761,5.5283,-3.0807)
-    smooth_dict[9]['vp'] = (29.2766,23.6027,5.5242,-2.5514)
-    smooth_dict[9]['vs'] = (22.3459,17.2473,-2.0834,0.9783)
+    smooth_dict[9]['rho'] = (7.9565,-6.4761,5.5283,-3.0807)
+    smooth_dict[9]['vp'] = (29.2766,-23.6027,5.5242,-2.5514)
+    smooth_dict[9]['vs'] = (22.3459,-17.2473,-2.0834,0.9783)
     smooth_dict[9]['qmu'] = (312.0)
     smooth_dict[9]['qk'] = (57823.0)
     smooth_dict[9]['eta'] = (1.0,0.0,0.0,0.0)
 
     smooth_dict[10]={}
     smooth_dict[10]['h'] = 3630.
-    smooth_dict[10]['rho'] = (7.9565,6.4761,5.5283,-3.0807)
-    smooth_dict[10]['vp'] = (24.9520,40.4673,51.4832,-26.6419)
-    smooth_dict[10]['vs'] = (11.1671,13.7818,17.4575,-9.2777)
+    smooth_dict[10]['rho'] = (7.9565,-6.4761,5.5283,-3.0807)
+    smooth_dict[10]['vp'] = (24.9520,-40.4673,51.4832,-26.6419)
+    smooth_dict[10]['vs'] = (11.1671,-13.7818,17.4575,-9.2777)
     smooth_dict[10]['qmu'] = (312.0)
     smooth_dict[10]['qk'] = (57823.0)
     smooth_dict[10]['eta'] = (1.0,0.0,0.0,0.0)

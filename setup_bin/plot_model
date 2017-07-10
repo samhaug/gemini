@@ -6,7 +6,7 @@
 File Name : plot_model.py
 Purpose : use to plot gemini input model
 Creation Date : 09-07-2017
-Last Modified : Mon 10 Jul 2017 10:48:30 AM EDT
+Last Modified : Mon 10 Jul 2017 11:54:45 AM EDT
 Created By : Samuel M. Haugland
 
 ==============================================================================
@@ -59,11 +59,11 @@ def main():
         vp_poly.append([r,vp_p(r)])
         vs_poly.append([r,vs_p(r)])
     for ii in rho_poly:
-        plt.plot(ii[0],ii[1],color='k')
+        plt.plot(ii[0]*6371.,ii[1],color='k')
     for ii in vp_poly:
-        plt.plot(ii[0],ii[1],color='r')
+        plt.plot(ii[0]*6371.,ii[1],color='r')
     for ii in vs_poly:
-        plt.plot(ii[0],ii[1],color='b')
+        plt.plot(ii[0]*6371.,ii[1],color='b')
     plt.show()
 
 #def grab_coef(poly_list,coef):
@@ -71,3 +71,6 @@ def read_file(fname):
     return open(fname).read().strip().split('\n')
 
 main()
+
+
+

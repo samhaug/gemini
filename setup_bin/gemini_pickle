@@ -53,7 +53,8 @@ def make_streams(stat_list,out_list):
     sr = meta[1].split()[3]
     evla = float(meta[0].split()[3])
     evlo = float(meta[0].split()[4])
-    evdp = float(meta[0].split()[5])
+    evdp = float(open('do_all','r').read().strip().\
+split('\n')[18].split('=')[1])
 
     for ii in range(0,len(stat_list)):
         tre = obspy.core.trace.Trace()
@@ -73,7 +74,7 @@ def make_streams(stat_list,out_list):
             jj.stats.sac['stlo'] = lon
             jj.stats.sac['evla'] = evla
             jj.stats.sac['evlo'] = evlo
-            jj.stats.sac['evdp'] = evlo
+            jj.stats.sac['evdp'] = evdp
             jj.stats.sac['o'] = 0
         d = np.genfromtxt(out_list[ii],skip_header=2)
         t,z,n,e = d[:,0],d[:,1],d[:,2],d[:,3]

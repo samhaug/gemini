@@ -20,7 +20,7 @@ Source_Depth=100
 #Gemini formatted Ascii file
 Earth_Model=stutprem
 #Use ndk_2_gemini to make this file
-Source_File=C062003D_cmt
+Source_File=C200707211327A_cmt
 #Use gemini_station to make this file
 Station_File=gemini_STATIONS
 #Frequency bounds in mHz
@@ -42,6 +42,10 @@ SeismoType=d
 #1 for Viscoelastic 
 #0 for Elastic
 Dispersion_Switch=0
+# Set maximum order 'm' in the sum over spherical harmonics here.
+# For example, set 'm=0' if the source is explosion type
+# For example, set 'm=2' if the source is moment tensor
+MaximumOrder=0
 #Angular order bounds
 Minimum_Degree=0
 Maximum_Degree=10000
@@ -92,7 +96,8 @@ echo '#                            ~~~~~~~~~~                            #'
 echo '#                            ~~~~~~~~~~                            #'
 echo '#------------------------------------------------------------------#'
 
-(cd ${run_name} && ./disp.sc ${Source_File} ${Station_File} ${Omega_Ell_Window})
+(cd ${run_name} && ./disp.sc ${Source_File} ${Station_File} ${Omega_Ell_Window}\
+                              ${MaximumOrder})
 
 echo '#------------------------------------------------------------------#'
 echo '#                                                                  #'
