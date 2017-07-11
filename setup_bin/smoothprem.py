@@ -6,7 +6,7 @@
 File Name : smoothprem.py
 Purpose : Make prem with smooth TZ ala Mike Thorne
 Creation Date : 09-07-2017
-Last Modified : Mon 10 Jul 2017 11:45:09 AM EDT
+Last Modified : Tue 11 Jul 2017 01:34:40 PM EDT
 Created By : Samuel M. Haugland
 
 ==============================================================================

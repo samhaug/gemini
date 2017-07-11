@@ -30,8 +30,6 @@ def main():
     for idx,ii in enumerate(coef):
         poly_list.append(a[jump:jump+ii])
         jump += ii
-    #for ii in poly_list:
-    #    print ii[0].strip().split()
 
     rho_poly = []
     vs_poly = []
@@ -48,10 +46,15 @@ def main():
         rho_coef = []
         vs_coef = []
         vp_coef = []
-        for jj in ii:
-            rho_coef.append(float(jj.strip().split()[1]))
-            vp_coef.append(float(jj.strip().split()[2]))
-            vs_coef.append(float(jj.strip().split()[4]))
+        for jdx,jj in enumerate(ii):
+            if jdx == 0:
+                rho_coef.append(float(jj.split()[1]))
+                vp_coef.append(float(jj.split()[2]))
+                vs_coef.append(float(jj.split()[4]))
+            else:
+                rho_coef.append(float(jj.split()[0]))
+                vp_coef.append(float(jj.split()[1]))
+                vs_coef.append(float(jj.split()[3]))
         rho_p = np.poly1d(rho_coef[::-1])
         vp_p = np.poly1d(vp_coef[::-1])
         vs_p = np.poly1d(vs_coef[::-1])

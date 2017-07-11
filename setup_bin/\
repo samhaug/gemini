@@ -92,19 +92,12 @@ def make_smooth_dict():
     VP12 = 8.61666453
     RHO12 = 3.45368975
     smooth_dict[3]['h'] = R12
-
-    m = ((VS12-VS11)/(R12/6371.-R11/6371.))
-    VSB = -m*R12/6371.+VS12
-    smooth_dict[3]['vs'] = (VSB,m)
-
-    m = ((RHO12-RHO11)/(R12/6371.-R11/6371.))
-    RHOB = -m*R12/6371.+RHO12
-    smooth_dict[3]['rho'] = (RHOB,m)
-
-    m = ((VP12-VP11)/(R12/6371.-R11/6371.))
-    VPB = -m*R12/6371.+VP12
-    smooth_dict[3]['vp'] = (VPB,m)
-
+    m = ((VS12-VS11)/(R12-R11))
+    smooth_dict[3]['vs'] = (VS11,m)
+    m = ((RHO12-RHO11)/(R12-R11))
+    smooth_dict[3]['rho'] = (RHO11,m)
+    m = ((VP12-VP11)/(R12-R11))
+    smooth_dict[3]['vp'] = (VP11,m)
     smooth_dict[3]['qmu'] = (600.0)
     smooth_dict[3]['qk'] = (57823.0)
     smooth_dict[3]['eta'] = (1.0,0.0)
@@ -128,19 +121,12 @@ def make_smooth_dict():
     VP12 = 9.28750292
     RHO12 = 3.76155793
     smooth_dict[5]['h'] = R12
-
-    m = ((RHO12-RHO11)/(R12/6371.-R11/6371.))
-    RHOB = -m*R12/6371.+RHO12
-    smooth_dict[5]['rho'] = (RHOB,m)
-
-    m = ((VP12-VP11)/(R12/6371.-R11/6371.))
-    VPB = -m*R12/6371.+VP12
-    smooth_dict[5]['vp'] = (VPB,m)
-
-    m = ((VS12-VS11)/(R12/6371.-R11/6371.))
-    VSB = -m*R12/6371.+VS12
-    smooth_dict[5]['vs'] = (VSB,m)
-
+    m = ((RHO12-RHO11)/(R12-R11))
+    smooth_dict[5]['rho'] = (RHO11,m)
+    m = ((VP12-VP11)/(R12-R11))
+    smooth_dict[5]['vp'] = (VP11,m)
+    m = ((VS12-VS11)/(R12-R11))
+    smooth_dict[5]['vs'] = (VS11,m)
     smooth_dict[5]['qmu'] = (80.0)
     smooth_dict[5]['qk'] = (57823.0)
     smooth_dict[5]['eta'] = (1.0,0.0)
@@ -163,6 +149,26 @@ def make_smooth_dict():
     smooth_dict[7]['qk'] = (57823.0)
     smooth_dict[7]['eta'] = (1.0,0.0)
 
+   # smooth_dict[8]={}
+   # R11 = 5731.0
+   # VS11 = 5.54698517
+   # VP11 = 10.21971143
+   # RHO11 = 3.98513532
+   # R12 = 5671.0
+   # VS12 = 6.03284432
+   # VP12 = 10.84473641
+   # RHO12 = 4.39943638
+   # smooth_dict[8]['h'] = R12
+   # m = ((RHO12-RHO11)/(R12-R11))
+   # smooth_dict[8]['rho'] = (RHO11,m)
+   # m = ((VP12-VP11)/(R12-R11))
+   # smooth_dict[8]['vp'] = (VP11,m)
+   # m = ((VS12-VS11)/(R12-R11))
+   # smooth_dict[8]['vs'] = (VS11,m)
+   # smooth_dict[8]['qmu'] = (143.0)
+   # smooth_dict[8]['qk'] = (57823.0)
+   # smooth_dict[8]['eta'] = (1.0,0.0)
+
     smooth_dict[8]={}
     R11 = 5731.0
     VS11 = 5.54698517
@@ -173,19 +179,12 @@ def make_smooth_dict():
     VP12 = 10.84473641
     RHO12 = 4.39943638
     smooth_dict[8]['h'] = R12
-
-    m = ((RHO12-RHO11)/(R12/6371.-R11/6371.))
-    RHOB = -m*R12/6371.+RHO12
-    smooth_dict[8]['rho'] = (RHOB,m)
-
-    m = ((VP12-VP11)/(R12/6371.-R11/6371.))
-    VPB = -m*R12/6371.+VP12
-    smooth_dict[8]['vp'] = (VPB,m)
-
-    m = ((VS12-VS11)/(R12/6371.-R11/6371.))
-    VSB = -m*R12/6371.+VS12
-    smooth_dict[8]['vs'] = (VSB,m)
-
+    m = ((RHO11-RHO12)/(R11-R12))
+    smooth_dict[8]['rho'] = (RHO11,m)
+    m = ((VP12-VP11)/(R12-R11))
+    smooth_dict[8]['vp'] = (VP11,m)
+    m = ((VS12-VS11)/(R12-R11))
+    smooth_dict[8]['vs'] = (VS11,m)
     smooth_dict[8]['qmu'] = (143.0)
     smooth_dict[8]['qk'] = (57823.0)
     smooth_dict[8]['eta'] = (1.0,0.0)

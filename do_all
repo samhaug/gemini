@@ -16,24 +16,24 @@ fi
 run_name=$1
 #Source depth in km
 #DO NOT CHANGE THE PLACEMENT OF Source_Depth LINE! gemini_pickle looks for it.
-Source_Depth=100
+Source_Depth=500
 #Gemini formatted Ascii file
-Earth_Model=stutprem
+Earth_Model=SMOOTHPREM
 #Use ndk_2_gemini to make this file
 Source_File=C200707211327A_cmt
 #Use gemini_station to make this file
 Station_File=gemini_STATIONS
 #Frequency bounds in mHz
 Minimum_Frequency=0
-Maximum_Frequency=200
+Maximum_Frequency=100
 #Seismogram length in seconds
-Seismo_Length=1800
+Seismo_Length=3600
 #Damping time should be Seismo_Length / 5 
-Damping_Time=360
+Damping_Time=720
 #1 for P-SV-motion only
 #2 for SH-motion only;
 #3 for both P-SV- and SH-motion.
-What_Motion=1
+What_Motion=2
 #d for displacement
 #v for velocity
 #a for acceleration
@@ -45,7 +45,7 @@ Dispersion_Switch=0
 # Set maximum order 'm' in the sum over spherical harmonics here.
 # For example, set 'm=0' if the source is explosion type
 # For example, set 'm=2' if the source is moment tensor
-MaximumOrder=0
+MaximumOrder=2
 #Angular order bounds
 Minimum_Degree=0
 Maximum_Degree=10000
