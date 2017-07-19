@@ -17,7 +17,13 @@ from matplotlib import pyplot as plt
 from sys import argv
 
 def main():
-    a = read_file(argv[1])
+    color = ['k','r','b','g']
+    for ii in range(1,len(argv)):
+        a = read_file(argv[ii])
+        plot_model(a,color[ii])
+    plt.show()
+
+def plot_model(a,color):
     nlay = int(a[10].split()[0])
     coef = [int(ii) for ii in a[11].split()[0:nlay]]
     a = a[17::]
@@ -62,14 +68,12 @@ def main():
         vp_poly.append([r,vp_p(r)])
         vs_poly.append([r,vs_p(r)])
     for ii in rho_poly:
-        plt.plot(ii[0]*6371.,ii[1],color='k')
+        plt.plot(ii[0]*6371.,ii[1],color=color,alpha=0.5)
     for ii in vp_poly:
-        plt.plot(ii[0]*6371.,ii[1],color='r')
+        plt.plot(ii[0]*6371.,ii[1],color=color,alpha=0.5)
     for ii in vs_poly:
-        plt.plot(ii[0]*6371.,ii[1],color='b')
-    plt.show()
+        plt.plot(ii[0]*6371.,ii[1],color=color,alpha=0.5)
 
-#def grab_coef(poly_list,coef):
 def read_file(fname):
     return open(fname).read().strip().split('\n')
 

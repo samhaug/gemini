@@ -79,7 +79,7 @@ SpectrumFile=$1
 
 #      Running Totido
 
-../totido << END
+$10/totido << END
 $SpectrumFile
 $ResponseFile
 $TimeShift

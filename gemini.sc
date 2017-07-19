@@ -83,7 +83,7 @@ if [ $# -a "$1" = -n ]; then
  shift
 fi
 
-../gemini << HERE  >| $Redirect_to
+$12/gemini << HERE  >| $Redirect_to
 $What_Motion
 $Print_Level
 $Seismo_Length

@@ -64,7 +64,7 @@ NSEWCoordinates=1
 #
 #-----------------------------------------
 
-../dispec  << ENDE 
+$5/dispec  << ENDE 
 $BasisSolutions
 $SourceFile
 $SourceMech

@@ -1,5 +1,5 @@
 #!/bin/sh 
-#
+source_dir=/home/samhaug/gemini-2.2
 #######################################################################
 #
 #       Samuel M. Haugland July 2017. Run Gemini,Dispec,Totido all 
@@ -16,16 +16,16 @@ fi
 run_name=$1
 #Source depth in km
 #DO NOT CHANGE THE PLACEMENT OF Source_Depth LINE! gemini_pickle looks for it.
-Source_Depth=500
+Source_Depth=415
 #Gemini formatted Ascii file
 Earth_Model=SMOOTHPREM
 #Use ndk_2_gemini to make this file
-Source_File=C200707211327A_cmt
+Source_File=C201702241728A_cmt
 #Use gemini_station to make this file
 Station_File=gemini_STATIONS
 #Frequency bounds in mHz
 Minimum_Frequency=0
-Maximum_Frequency=100
+Maximum_Frequency=200
 #Seismogram length in seconds
 Seismo_Length=3600
 #Damping time should be Seismo_Length / 5 
@@ -33,7 +33,7 @@ Damping_Time=720
 #1 for P-SV-motion only
 #2 for SH-motion only;
 #3 for both P-SV- and SH-motion.
-What_Motion=2
+What_Motion=1
 #d for displacement
 #v for velocity
 #a for acceleration
@@ -41,7 +41,7 @@ What_Motion=2
 SeismoType=d
 #1 for Viscoelastic 
 #0 for Elastic
-Dispersion_Switch=0
+Dispersion_Switch=1
 # Set maximum order 'm' in the sum over spherical harmonics here.
 # For example, set 'm=0' if the source is explosion type
 # For example, set 'm=2' if the source is moment tensor
@@ -68,9 +68,11 @@ HighpassCF=0.0025
 mkdir ${run_name}
 mkdir ${run_name}/green
 cp do_all ${run_name}
-cp ./gemini.sc ${run_name}
-cp ./disp.sc ${run_name}
-cp ./to.sc ${run_name}
+cp ${source_dir}/${Earth_Model} .
+cp ${source_dir}/${Omega_Ell_Window} ${run_name}
+cp ${source_dir}/gemini.sc ${run_name}
+cp ${source_dir}/disp.sc ${run_name}
+cp ${source_dir}/to.sc ${run_name}
 cp stations/${Station_File} ${run_name}
 cp ${Omega_Ell_Window} ${run_name}
 cp sources/${Source_File} ${run_name}
@@ -83,11 +85,11 @@ echo '#                            ~~~~~~~~~~                            #'
 echo '#                            ~~~~~~~~~~                            #'
 echo '#------------------------------------------------------------------#'
 
-(cd ${run_name} && ./gemini.sc ${Earth_Model} ${Omega_Ell_Window} \
+(cd ${run_name} && ${source_dir}/gemini.sc ${Earth_Model} ${Omega_Ell_Window} \
                     ${Seismo_Length} ${Damping_Time} ${Minimum_Frequency}\
                     ${Maximum_Frequency} ${Dispersion_Switch} \
                     ${Minimum_Degree} ${Maximum_Degree} ${Source_Depth}\
-                    ${What_Motion})
+                    ${What_Motion} ${source_dir})
 
 echo '#------------------------------------------------------------------#'
 echo '#                                                                  #'
@@ -96,8 +98,8 @@ echo '#                            ~~~~~~~~~~                            #'
 echo '#                            ~~~~~~~~~~                            #'
 echo '#------------------------------------------------------------------#'
 
-(cd ${run_name} && ./disp.sc ${Source_File} ${Station_File} ${Omega_Ell_Window}\
-                              ${MaximumOrder})
+(cd ${run_name} && ${source_dir}/disp.sc ${Source_File} ${Station_File} \
+                              ${Omega_Ell_Window} ${MaximumOrder} ${source_dir})
 
 echo '#------------------------------------------------------------------#'
 echo '#                                                                  #'
@@ -106,9 +108,10 @@ echo '#                            ~~~~~~~~~~                            #'
 echo '#                            ~~~~~~~~~~                            #'
 echo '#------------------------------------------------------------------#'
 
-(cd ${run_name} && ./to.sc spec3k ${Seismo_Length} ${SeismoType}\
+(cd ${run_name} && ${source_dir}/to.sc spec3k ${Seismo_Length} ${SeismoType}\
                      ${LowpassNumber} ${LowpassOrder} ${LowpassCF}\
-                     ${HighpassNumber} ${HighpassOrder} ${HighpassCF})
+                     ${HighpassNumber} ${HighpassOrder} ${HighpassCF}\
+                     ${source_dir})
 
 # Samuel Haugland July 2017
 # Execute this script to neatly pack gemini output into a folder that 
