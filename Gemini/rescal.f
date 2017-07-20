@@ -10,7 +10,7 @@ c **
 c Suche Maximalbetrag des Funktionenvektors
       maxabs = 0.d0
       do i = 1, nvar
-        maxabs = max(zabs(zy),maxabs)
+        maxabs = max(zabs(zy(i)),maxabs)
       enddo
 
 c Skaliere die einzelnen Komponenten des Vektors falls maxabs groesser

@@ -6,8 +6,8 @@
 #               J.R. Dalkolmo, April 1997
 #######################################################################
 
-Redirect_to=/dev/tty
-#Redirect_to=gemini.sc.out
+#Redirect_to=/dev/tty
+Redirect_to=gemini.sc.out
 
 #-------------------------------------------------------------------
 #                Set program parameters
@@ -16,7 +16,7 @@ Redirect_to=/dev/tty
 # Choose the kind of motion you like to calculate. Set the
 # variable to 1 for P-SV-motion only; set it to 2 for SH-motion only;
 # set it to 3 to calculate all P-SV- and SH-motion.
-What_Motion=$11
+What_Motion="${11}"
 
 # Verbose level for monitor-output. '0' yields monitoring every 
 # frequency; n every degree if mod(l,n)=0
@@ -54,7 +54,7 @@ Maximum_Degree=$9
 Degree_Step=1
 
 # Depth of the source in [km]. You can set this to Zero, if you like
-Source_Depth=$10
+Source_Depth="${10}"
 
 # Accuracy which rules the performance of the integration 
 # algorithm (Bulirsch-Stoer). Don't be too greedy, 1.e-4 should be
@@ -83,7 +83,7 @@ if [ $# -a "$1" = -n ]; then
  shift
 fi
 
-$12/gemini << HERE  >| $Redirect_to
+"${12}"/gemini << HERE  >| $Redirect_to
 $What_Motion
 $Print_Level
 $Seismo_Length

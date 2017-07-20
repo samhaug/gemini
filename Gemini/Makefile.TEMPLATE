@@ -7,12 +7,10 @@
 
 #-------------------Options and library/-paths -----------------------
 F2CFLAGS= -u -f
-#FFLAGS= -e -O -ffixed-line-length-none
-FC=gfortran
-FFLAGS= -O -ffixed-line-length-none
+FFLAGS= -e -O -ffixed-line-length-none
 CFLAGS= -c
 CLIB = -L/usr/lib -lf2c -lm 
-#FC=pgf77
+FC=g77
 #
 # ------------------ Dependent o-files ------------------------------
 #
@@ -25,7 +23,7 @@ GEMINI = gemini.o propag.o ixone.o aasmst.o gtllim.o \
 #
 #**************    Rules ************************************
 #
-COMPILER=gfortran
+COMPILER=g77
 #
 # We prefer working with 'f2c & gcc', which generate smaller
 # and faster executables. If you don't like this or you haven't
@@ -33,14 +31,14 @@ COMPILER=gfortran
 # The library CLIB is only used by 'f2c & gcc'.
 #
 # Comment out from here ........................ 
-#COMPILER=$(CC)
-#COMPLIB=$(CLIB)
+COMPILER=$(CC)
+COMPLIB=$(CLIB)
 #
-#%.o: %.c
-#.f.o:
-#	@f2c $(F2CFLAGS) $<
-#	$(COMPILER) $(CFLAGS) $(CPPFLAGS) $(<:.f=.c) -o $@
-#	@rm  $(<:.f=.c)
+%.o: %.c
+.f.o:
+	@f2c $(F2CFLAGS) $<
+	$(COMPILER) $(CFLAGS) $(CPPFLAGS) $(<:.f=.c) -o $@
+	@rm  $(<:.f=.c)
 # ...................................  to here.
 #
 #

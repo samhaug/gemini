@@ -64,7 +64,7 @@ c----------------------------------------------------------------------
          enddo
         enddo
       else
-         ievod=sign(1,cdel)
+         ievod=sign(1.0,cdel)
          do  l=0,lmax
           dYdt(l,0) = 0.
           dYdt(l,1) = -0.5*float((l*(l+1))*ievod**l)

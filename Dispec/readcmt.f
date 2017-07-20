@@ -29,12 +29,12 @@ c-----------------------------------------------------------------
       inut = 1
       OPEN(inut,file=cevent,iostat=ios,status='old',err=999)
       read(inut,1001)code,month,day,year,hour,min,sec,lat,lon,depth,
-     1            mb,ms,region
+     1           mb,ms,region
  1001 format(a8,5(1x,a2),1x,f4.1,f7.2,f8.2,f6.1,2f3.1,a24)     
       print *, 'CMT Line 1 read success'
       read(inut,1002)epsrc,bwst,bwrec,bwcoff,mwst,mwrec,mwcoff,
      1            dt,edt,clat,eclat,clon,eclon,cdepth,ecdepth
- 1002 format(a3,2(4x,i2,i3,i4),4x,f6.1,f4.1,
+ 1002 format(a3,2(4x,a2,a3,a4),4x,f6.1,f4.1,
      1       f7.2,f5.2,f8.2,f5.2,f6.1,f5.1)
       print *, 'CMT Line 2 read success'
       read(inut,1003)ahdur,expo,rmom(1),emrr,rmom(2),emss,rmom(3),emee,
@@ -76,7 +76,6 @@ c     print *, 'date,time:',date,time
       return
 
 999   print *,'File status=',ios
-      pause 'Error in readCMT!!'
       end
 
 

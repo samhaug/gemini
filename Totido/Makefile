@@ -7,7 +7,9 @@
 #
 #-------------------Options and library/-paths -----------------------
 F2CFLAGS= -u -f
-FFLAGS= -e -O
+#FFLAGS= -e -O
+FFLAGS= -O -ffixed-line-length-none
+FC=gfortran
 CFLAGS= -c
 CLIB = -L/usr/lib -lf2c -lm 
 #
@@ -17,7 +19,7 @@ TOTIDO = totido.o sft.o hbutcw.o writeAscii.o
 #
 #**************    Rules ************************************
 #
-COMPILER=f77
+COMPILER=gfortran
 #
 # We prefer working with 'f2c & gcc', which generate smaller
 # and faster executables. If you don't like this or you haven't
@@ -25,19 +27,19 @@ COMPILER=f77
 # The library CLIB is only used by 'f2c & gcc'.
 #
 # Comment out from here ........................ 
-COMPILER=$(CC)
-COMPLIB=$(CLIB) 
+#COMPILER=$(CC)
+#COMPLIB=$(CLIB) 
 #
 #  You may omit this library if you comment out the call to writesff
 #  in totido.f (close to the end)
 #
 #SFFLIB=-L. -lf2cstuff
 #
-%.o: %.c
-.f.o:
-	@f2c $(F2CFLAGS) $<
-	$(COMPILER) $(CFLAGS) $(CPPFLAGS) $(<:.f=.c) -o $@
-	@rm  $(<:.f=.c)
+#%.o: %.c
+#.f.o:
+#	@f2c $(F2CFLAGS) $<
+#	$(COMPILER) $(CFLAGS) $(CPPFLAGS) $(<:.f=.c) -o $@
+#	@rm  $(<:.f=.c)
 # ...................................  to here.
 #
 #

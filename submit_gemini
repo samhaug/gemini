@@ -1,0 +1,18 @@
+#!/bin/bash 
+
+########################################################
+######### submit the jobs ##############################
+########################################################
+
+echo '#!/bin/bash -l'                          >  sbatch.sh
+echo '#SBATCH --time=1:00:00'                  >> sbatch.sh 
+echo '#SBATCH --mem-per-cpu=4000'               >> sbatch.sh
+echo '#SBATCH -o GEMINI.out'                    >> sbatch.sh
+echo '#SBATCH -e GEMINI.err'                    >> sbatch.sh
+echo '#SBATCH -p DTM'                           >> sbatch.sh
+echo '#SBATCH --export=ALL'                     >> sbatch.sh
+echo '#SBATCH --nodes=1'                        >> sbatch.sh
+echo '#SBATCH --ntasks-per-node=1'              >> sbatch.sh
+echo 'ulimit -s unlimited'                      >> sbatch.sh
+echo './do_all '$1 ' >& OUTPUT'  >> sbatch.sh
+sbatch sbatch.sh 

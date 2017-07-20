@@ -1,5 +1,5 @@
 #!/bin/sh 
-source_dir=/home/samhaug/gemini-2.2
+source_dir=/home/shaugland/gemini
 #######################################################################
 #
 #       Samuel M. Haugland July 2017. Run Gemini,Dispec,Totido all 
@@ -16,16 +16,16 @@ fi
 run_name=$1
 #Source depth in km
 #DO NOT CHANGE THE PLACEMENT OF Source_Depth LINE! gemini_pickle looks for it.
-Source_Depth=415
+Source_Depth=581
 #Gemini formatted Ascii file
-Earth_Model=SMOOTHPREM
+Earth_Model=stutprem_nocrust
 #Use ndk_2_gemini to make this file
-Source_File=C201702241728A_cmt
+Source_File=C201605270408A_cmt
 #Use gemini_station to make this file
 Station_File=gemini_STATIONS
 #Frequency bounds in mHz
 Minimum_Frequency=0
-Maximum_Frequency=200
+Maximum_Frequency=100
 #Seismogram length in seconds
 Seismo_Length=3600
 #Damping time should be Seismo_Length / 5 
@@ -68,7 +68,7 @@ HighpassCF=0.0025
 mkdir ${run_name}
 mkdir ${run_name}/green
 cp do_all ${run_name}
-cp ${source_dir}/${Earth_Model} .
+cp ${source_dir}/${Earth_Model} ${run_name}
 cp ${source_dir}/${Omega_Ell_Window} ${run_name}
 cp ${source_dir}/gemini.sc ${run_name}
 cp ${source_dir}/disp.sc ${run_name}
@@ -76,7 +76,6 @@ cp ${source_dir}/to.sc ${run_name}
 cp stations/${Station_File} ${run_name}
 cp ${Omega_Ell_Window} ${run_name}
 cp sources/${Source_File} ${run_name}
-cp ${Earth_Model} ${run_name}
 
 echo '#------------------------------------------------------------------#'
 echo '#                                                                  #'
@@ -119,6 +118,9 @@ echo '#------------------------------------------------------------------#'
 # Splits a single Ascii output file into a file for each seismogram
 (cd ${run_name} && csplit --digits=4  --quiet --prefix=outfile seismogr "/REC/-0" "{*}")
 (cd ${run_name} && mv outfile0000 meta_param)
+mv OUTPUT ${run_name}
+mv GEMINI.err ${run_name}
+mv GEMINI.out ${run_name}
 #(cd ${run_name}
 #for d in *;
 #do
